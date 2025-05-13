@@ -1,0 +1,18 @@
+Step 1 Match only whole words.
+View the lines that match the whole word "inet" in the NIC information.
+[root@openEuler ~]# ifconfig | grep -w 'inet'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet 127.0.0.1 netmask 255.0.0.0
+[root@openEuler ~]#
+Step 2 Match only whole lines.
+View the lines that match the whole line "TYPE=Ethernet" in the NIC configuration file.
+[root@openEuler ~]# grep -x 'TYPE=Ethernet' /etc/sysconfig/network-scripts/ifcfg-ens3
+TYPE=Ethernet
+[root@openEuler ~]#
+Step 3 Ignore case distinctions.
+View the lines that match "broadcast" and ignore case distinctions in the NIC
+information.
+[root@openEuler ~]# ifconfig | grep -i 'broadcast'
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
