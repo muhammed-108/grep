@@ -1,0 +1,38 @@
+Step 1 A maximum of n lines are displayed.
+View a maximum of one line that contains "inet" in the NIC information.
+[root@openEuler ~]# ifconfig | grep -m1 'inet'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+Step 2 The matched lines and line numbers are displayed.
+View the lines that contain "inet6" and their line numbers in the NIC information.
+[root@openEuler ~]# ifconfig | grep -n 'inet6'
+3: inet6 fe80::f816:3eff:fe5d:b5cb prefixlen 64 scopeid 0x20<link>
+12: inet6 ::1 prefixlen 128 scopeid 0x10<host>
+[root@openEuler ~]#
+Step 3 The number of matched lines is displayed.
+View the number of lines that contain "inet6" in the NIC information.
+[root@openEuler ~]# ifconfig | grep -c 'inet6'
+2
+[root@openEuler ~]#
+Step 4 The unmatched lines are displayed.
+View the lines that do not start with a space in the NIC information.
+[root@openEuler ~]# ifconfig | grep -v '^ '
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536
+[root@openEuler ~]#
+Step 5 Only the matched content is displayed.
+View the content that only contains "192.168.0.255" in the NIC information.
+[root@openEuler ~]# ifconfig | grep -o '192.168.0.255'
+192.168.0.255
+Step 6 The matched lines and file names are displayed.
+View the lines and file names that contain "Ethernet" in the NIC configuration file.
+[root@openEuler ~]# grep -H 'Ethernet' /etc/sysconfig/network-scripts/ifcfg-ens3
+/etc/sysconfig/network-scripts/ifcfg-ens3:TYPE=Ethernet
+[root@openEuler ~]#
+Step 7 The matched file names are displayed.
+View the file names that contain "Ethernet" in the NIC configuration file.
+[root@openEuler ~]# grep -l 'Ethernet' /etc/sysconfig/network-scripts/ifcfg-ens3
+/etc/sysconfig/network-scripts/ifcfg-ens3
+[root@openEuler ~]#
+
+
