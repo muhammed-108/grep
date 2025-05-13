@@ -1,0 +1,21 @@
+Step 1 The last n lines that are matched.
+View the lines that contain "192" and the following one line in the NIC information.
+[root@openEuler ~]# ifconfig | grep -A1 '192'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet6 fe80::f816:3eff:fe5d:b5cb prefixlen 64 scopeid 0x20<link>
+[root@openEuler ~]#
+Step 2 The first n lines that are matched.
+View the lines that contain "192" and one line before the matched line in the NIC
+information.
+[root@openEuler ~]# ifconfig | grep -B1 '192'
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+Step 3 The matched line and n lines before and after it.
+View the lines that contain "192" and one line before and after the matched line in the
+NIC information.
+[root@openEuler ~]# ifconfig | grep -C1 '192'
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet6 fe80::f816:3eff:fe5d:b5cb prefixlen 64 scopeid 0x20<link>
+[root@openEuler ~]#
